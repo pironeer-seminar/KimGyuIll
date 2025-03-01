@@ -9,6 +9,7 @@ import pironeer.util.Timer;
 public class DetectiveGame {
 
     private List<Character> characters;
+    private List<Character> suspectCharacters;
     private Character murderer;
     private Character victim;
     private String dyingMessage;
@@ -37,10 +38,17 @@ public class DetectiveGame {
         timer.sleep(1000);
 
         // 4. Reader 클래스를 사용하여 탐정의 이름을 입력받고 1.5초 정지
+        System.out.print("탐정님의 성함을 입력해주세요: ");
+        detectiveName = reader.nextLine().trim();
+        timer.sleep(1500);
 
         // 5. 캐릭터 중 한 명을 희생자로 지정하고, 목록에서 제거
+        suspectCharacters = new ArrayList<>(characters);
 
-        murderer = characters.get(random.nextInt(characters.size()));
+        victim = suspectCharacters.get(random.nextInt(suspectCharacters.size()));
+        suspectCharacters.remove(victim);
+
+        murderer = suspectCharacters.get(random.nextInt(suspectCharacters.size()));
 
         List<String> dyingMessageType = List.of(
                 "hair",
@@ -50,6 +58,18 @@ public class DetectiveGame {
 
         // 6. 랜덤하게 속성 값을 선택하고 다잉메시지 출력
 
+        String dyingMessageNum = dyingMessageType.get(random.nextInt(dyingMessageType.size()));
+        switch (dyingMessageNum) {
+            case "hair":
+                dyingMessage = "머리스타일은 " + murderer.getHair() + "윽..☠";
+                break;
+            case "clothes":
+                dyingMessage = "옷은 " + murderer.getClothes() + "윽..☠";
+                break;
+            case "shoes":
+                dyingMessage = "신발은 " + murderer.getShoes() + "윽..☠";
+                break;
+        }
         System.out.println("########################################");
         System.out.println("#######        평화로운 해커톤              ");
         System.out.println("########################################");
@@ -87,7 +107,7 @@ public class DetectiveGame {
         timer.sleep(1000);
 
         // 7. 용의자 총 인원수 출력
-        System.out.println("\n문제의 노트북 주위에 있는 사람은 6명 입니다.");
+        System.out.println("\n문제의 노트북 주위에 있는 사람은 " + suspectCharacters.size() + "명 입니다.");
         timer.sleep(1000);
 
         System.out.println("그중, 범인은 바로 이 자리에 있을 것입니다...");
@@ -102,27 +122,46 @@ public class DetectiveGame {
     }
 
     public void investigate() {
+        // 8. 사용자가 입력한 이름을 가진 용의자 조사
         System.out.println("용의자와 대화를 나누고 인상착의를 수집하세요...");
-        for (int i = 1; i <= characters.size(); i++) {
-            System.out.println(i + ". " + characters.get(i - 1).getName());
+
+        for (int i = 1; i <= suspectCharacters.size(); i++) {
+            System.out.println(i + ". " + suspectCharacters.get(i - 1).getName());
         }
 
-        System.out.println("\n누구를 조사하시겠습니까? 이름을 입력하세요: ");
+        System.out.print("\n누구를 조사하시겠습니까? 이름을 입력하세요: ");
         String choiceName = reader.nextLine().trim();
 
-        // 8. 사용자가 입력한 이름을 가진 용의자 조사
+        Character selectedSuspect = null;
 
-        System.out.println("잘못된 입력입니다! 시간이 얼마 남지 않았습니다, 다시 시도해주세요!");
-        System.out.println("범인은 아직도 우리 곁에 있어요. 서둘러 진실을 밝혀내야 합니다!");
-        System.out.println(detectiveName + ": 좋아, 이번엔 잘 선택해보자.");
+        for (Character c : suspectCharacters) {
+            if (c.getName().equals(choiceName)) {
+                selectedSuspect = c;
+                break;
+            }
+        }
+        timer.sleep(1000);
+        if (selectedSuspect != null) {
+            System.out.println(selectedSuspect.getName() + "의 인상착의를 봅니다.");
+            timer.sleep(1000);
+            System.out.println("- 머리: " + selectedSuspect.getHair());
+            System.out.println("- 옷: " + selectedSuspect.getClothes());
+            System.out.println("- 신발: " + selectedSuspect.getShoes());
 
-        investigate();
+        } else {
+            System.out.println("잘못된 입력입니다! 시간이 얼마 남지 않았습니다, 다시 시도해주세요!");
+            System.out.println("범인은 아직도 우리 곁에 있어요. 서둘러 진실을 밝혀내야 합니다!");
+            System.out.println(detectiveName + ": 좋아, 이번엔 잘 선택해보자.");
+
+            investigate();
+        }
     }
 
+
     public boolean matchDyingMessage(Character character) {
-        if (dyingMessage.equals("머리스타일은 " + murderer.getHair() + "윽..☠") ||
-                dyingMessage.equals("옷은 " + murderer.getClothes() + "윽..☠") ||
-                dyingMessage.equals("신발은 " + murderer.getShoes() + "윽..☠")) {
+        if (dyingMessage.equals("머리스타일은 " + character.getHair() + "윽..☠") ||
+                dyingMessage.equals("옷은 " + character.getClothes() + "윽..☠") ||
+                dyingMessage.equals("신발은 " + character.getShoes() + "윽..☠")) {
             return true;
         }
         return false;
