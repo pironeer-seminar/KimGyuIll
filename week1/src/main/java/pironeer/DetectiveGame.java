@@ -43,6 +43,11 @@ public class DetectiveGame {
         System.out.println("탐정 게임에 오신 것을 환영합니다.");
         timer.sleep(1000);
 
+        setGame();
+        startIntro();
+    }
+
+    private void setGame() {
         // 4. Reader 클래스를 사용하여 탐정의 이름을 입력받고 1.5초 정지
         System.out.print("탐정님의 성함을 입력해주세요: ");
         detectiveName = reader.nextLine().trim();
@@ -63,19 +68,21 @@ public class DetectiveGame {
         );
 
         // 6. 랜덤하게 속성 값을 선택하고 다잉메시지 출력
-
         String dyingMessageNum = dyingMessageType.get(random.nextInt(dyingMessageType.size()));
         switch (dyingMessageNum) {
             case "hair":
-                dyingMessage = "머리스타일은 " + murderer.getHair() + "윽..☠";
+                dyingMessage = "머리스타일은 " + murderer.getHair() + " 윽..☠";
                 break;
             case "clothes":
-                dyingMessage = "옷은 " + murderer.getClothes() + "윽..☠";
+                dyingMessage = "옷은 " + murderer.getClothes() + " 윽..☠";
                 break;
             case "shoes":
-                dyingMessage = "신발은 " + murderer.getShoes() + "윽..☠";
+                dyingMessage = "신발은 " + murderer.getShoes() + " 윽..☠";
                 break;
         }
+    }
+
+    private void startIntro() {
         System.out.println("########################################");
         System.out.println("#######        평화로운 해커톤              ");
         System.out.println("########################################");
