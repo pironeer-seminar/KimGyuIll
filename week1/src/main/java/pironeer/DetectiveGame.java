@@ -3,17 +3,22 @@ package pironeer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import pironeer.chracter.Character;
+import pironeer.chracter.Clothes;
+import pironeer.chracter.HairStyle;
+import pironeer.chracter.Shoes;
 import pironeer.util.Reader;
 import pironeer.util.Timer;
 
 public class DetectiveGame {
 
-    private List<Character> characters;
-    private List<Character> suspectCharacters;
-    private Character murderer;
-    private Character victim;
+    private List<pironeer.chracter.Character> characters;
+    private List<pironeer.chracter.Character> suspectCharacters;
+    private pironeer.chracter.Character murderer;
+    private pironeer.chracter.Character victim;
     private String dyingMessage;
-    private Character suspect;
+    private pironeer.chracter.Character suspect;
     private int lives;
     private String detectiveName;
 
@@ -23,13 +28,13 @@ public class DetectiveGame {
 
     public void init() {
         characters = new ArrayList<>();
-        characters.add(new Character("최승호", "장발이야", "운동복을 입었어", "나이키를 신었어"));
-        characters.add(new Character("김민수", "파란 모자를 썼어", "양복을 입었어", "구두를 신었어"));
-        characters.add(new Character("이건희", "파마를 했어", "무스탕을 입었어", "아무것도 안 신고 있었어"));
-        characters.add(new Character("손관우", "스님 머리야", "셔츠를 입었어", "슬리퍼 신었어"));
-        characters.add(new Character("장지요", "단발머리야", "치마를 입었어", "부츠를 신었어"));
-        characters.add(new Character("안시환", "투블럭을 했어", "반팔티를 입었어", "크록스를 신었어"));
-        characters.add(new Character("이지현", "허리까지 머리카락이 있어", "원피스를 입었어", "힐을 신었어"));
+        characters.add(new pironeer.chracter.Character("최승호", HairStyle.LONG_HAIR, Clothes.SPORTS_WEAR, Shoes.NIKE));
+        characters.add(new pironeer.chracter.Character("김민수", HairStyle.SHORT_HAIR, Clothes.SUIT, Shoes.LEATHER_SHOES));
+        characters.add(new pironeer.chracter.Character("이건희", HairStyle.CURLY, Clothes.COAT, Shoes.BAREFOOT));
+        characters.add(new pironeer.chracter.Character("손관우", HairStyle.BALD, Clothes.SHIRT, Shoes.SLIPPERS));
+        characters.add(new pironeer.chracter.Character("장지요", HairStyle.SHORT_HAIR, Clothes.SKIRT, Shoes.BOOTS));
+        characters.add(new pironeer.chracter.Character("안시환", HairStyle.TWO_BLOCK, Clothes.T_SHIRT, Shoes.CROCS));
+        characters.add(new pironeer.chracter.Character("이지현", HairStyle.WAIST_LONG, Clothes.DRESS, Shoes.HEELS));
         lives = 2;
     }
 
@@ -132,9 +137,9 @@ public class DetectiveGame {
         System.out.print("\n누구를 조사하시겠습니까? 이름을 입력하세요: ");
         String choiceName = reader.nextLine().trim();
 
-        Character selectedSuspect = null;
+        pironeer.chracter.Character selectedSuspect = null;
 
-        for (Character c : suspectCharacters) {
+        for (pironeer.chracter.Character c : suspectCharacters) {
             if (c.getName().equals(choiceName)) {
                 selectedSuspect = c;
                 break;
@@ -158,7 +163,7 @@ public class DetectiveGame {
     }
 
 
-    public boolean matchDyingMessage(Character character) {
+    public boolean matchDyingMessage(pironeer.chracter.Character character) {
         if (dyingMessage.equals("머리스타일은 " + character.getHair() + "윽..☠") ||
                 dyingMessage.equals("옷은 " + character.getClothes() + "윽..☠") ||
                 dyingMessage.equals("신발은 " + character.getShoes() + "윽..☠")) {
