@@ -2,6 +2,7 @@ package pironeer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 import pironeer.chracter.Character;
@@ -137,29 +138,26 @@ public class DetectiveGame {
         System.out.print("\n누구를 조사하시겠습니까? 이름을 입력하세요: ");
         String choiceName = reader.nextLine().trim();
 
-        pironeer.chracter.Character selectedSuspect = null;
+        Optional<Character> selectedSuspect = suspectCharacters.stream()
+                .filter(c -> c.getName().equals(choiceName))
+                .findFirst();
 
-        for (pironeer.chracter.Character c : suspectCharacters) {
-            if (c.getName().equals(choiceName)) {
-                selectedSuspect = c;
-                break;
-            }
-        }
         timer.sleep(1000);
-        if (selectedSuspect != null) {
-            System.out.println(selectedSuspect.getName() + "의 인상착의를 봅니다.");
-            timer.sleep(1000);
-            System.out.println("- 머리: " + selectedSuspect.getHair());
-            System.out.println("- 옷: " + selectedSuspect.getClothes());
-            System.out.println("- 신발: " + selectedSuspect.getShoes());
-
-        } else {
-            System.out.println("잘못된 입력입니다! 시간이 얼마 남지 않았습니다, 다시 시도해주세요!");
-            System.out.println("범인은 아직도 우리 곁에 있어요. 서둘러 진실을 밝혀내야 합니다!");
-            System.out.println(detectiveName + ": 좋아, 이번엔 잘 선택해보자.");
-
-            investigate();
-        }
+        selectedSuspect.ifPresentOrElse(
+                suspect -> {
+                    System.out.println(suspect.getName() + "의 인상착의를 봅니다.");
+                    timer.sleep(1000);
+                    System.out.println("- 머리: " + suspect.getHair());
+                    System.out.println("- 옷: " + suspect.getClothes());
+                    System.out.println("- 신발: " + suspect.getShoes());
+                },
+                () -> {
+                    System.out.println("잘못된 입력입니다! 시간이 얼마 남지 않았습니다, 다시 시도해주세요!");
+                    System.out.println("범인은 아직도 우리 곁에 있어요. 서둘러 진실을 밝혀내야 합니다!");
+                    System.out.println(detectiveName + ": 좋아, 이번엔 잘 선택해보자.");
+                    investigate(); // 재귀 호출
+                }
+        );
     }
 
 
