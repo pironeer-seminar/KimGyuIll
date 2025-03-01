@@ -44,6 +44,7 @@ public class DetectiveGame {
         timer.sleep(1000);
 
         setGame();
+        setEvent();
         startIntro();
     }
 
@@ -53,33 +54,20 @@ public class DetectiveGame {
         detectiveName = reader.nextLine().trim();
         timer.sleep(1500);
 
-        // 5. 캐릭터 중 한 명을 희생자로 지정하고, 목록에서 제거
+
+    }
+
+    private void setEvent() {
         suspectCharacters = new ArrayList<>(characters);
-
-        victim = suspectCharacters.get(random.nextInt(suspectCharacters.size()));
-        suspectCharacters.remove(victim);
-
+        victim = suspectCharacters.remove(random.nextInt(suspectCharacters.size()));
         murderer = suspectCharacters.get(random.nextInt(suspectCharacters.size()));
 
-        List<String> dyingMessageType = List.of(
-                "hair",
-                "clothes",
-                "shoes"
-        );
-
-        // 6. 랜덤하게 속성 값을 선택하고 다잉메시지 출력
-        String dyingMessageNum = dyingMessageType.get(random.nextInt(dyingMessageType.size()));
-        switch (dyingMessageNum) {
-            case "hair":
-                dyingMessage = "머리스타일은 " + murderer.getHair() + " 윽..☠";
-                break;
-            case "clothes":
-                dyingMessage = "옷은 " + murderer.getClothes() + " 윽..☠";
-                break;
-            case "shoes":
-                dyingMessage = "신발은 " + murderer.getShoes() + " 윽..☠";
-                break;
-        }
+        DyingMessageType selectedType = DyingMessageType.values()[random.nextInt(DyingMessageType.values().length)];
+        dyingMessage = switch (selectedType) {
+            case HAIR -> "머리스타일은 " + murderer.getHair() + " 윽..☠";
+            case CLOTHES -> "옷은 " + murderer.getClothes() + " 윽..☠";
+            case SHOES -> "신발은 " + murderer.getShoes() + " 윽..☠";
+        };
     }
 
     private void startIntro() {
@@ -167,14 +155,12 @@ public class DetectiveGame {
         );
     }
 
-
-    public boolean matchDyingMessage(pironeer.chracter.Character character) {
-        if (dyingMessage.equals("머리스타일은 " + character.getHair() + "윽..☠") ||
-                dyingMessage.equals("옷은 " + character.getClothes() + "윽..☠") ||
-                dyingMessage.equals("신발은 " + character.getShoes() + "윽..☠")) {
-            return true;
-        }
-        return false;
+    public boolean matchDyingMessage(Character character) {
+        return Optional.ofNullable(dyingMessage)
+                .map(msg -> msg.equals("머리스타일은 " + character.getHair() + " 윽..☠") ||
+                        msg.equals("옷은 " + character.getClothes() + " 윽..☠") ||
+                        msg.equals("신발은 " + character.getShoes() + " 윽..☠"))
+                .orElse(false);
     }
 
     public String promptChoice(String prompt) {
@@ -193,7 +179,7 @@ public class DetectiveGame {
 
         // 10. charaters 각 항목을 인덱스와 함께 출력
 
-        System.out.println("\n누구를 범인으로 지목하시겠습니까? 이름을 입력하세요: ");
+        System.out.print("\n누구를 범인으로 지목하시겠습니까? 이름을 입력하세요: ");
         String choiceName = reader.nextLine().trim();
         System.out.println(detectiveName + ": 범인은 바로 " + choiceName + "씨야");
 
