@@ -5,39 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fece4ed-8bf6-45ff-b934-3491c5f1a955" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/programmers/노선별 평균 역 사이 거리 조회하기.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/programmers/물고기 종류 별 잡은 수 구하기.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/programmers/부모의 형질을 모두 가지는 대장균 찾기.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/programmers/분기별 분화된 대장균의 개체 수 구하기.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/programmers/연도 별 평균 미세먼지 농도 조회하기.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/programmers/연도별 대장균 크기의 편차 구하기.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/programmers/월별 잡은 물고기 수 구하기.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/programmers/조건에 맞는 개발자 찾기.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/programmers/조건에 맞는 사원 정보 조회하기.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/programmers/특정 물고기를 잡은 총 수 구하기.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/img/1-요청.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/img/1-응답.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/img/2-요청.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/img/2-응답.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/img/3-요청.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/img/3-응답.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/img/4-요청.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/img/4-응답.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/img/5-요청.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/img/5-응답.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/img/잘못된 요청.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/img/잘못된 응답.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/src/main/java/com/pironeer/week2/Week2Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/src/main/java/com/pironeer/week2/controller/AnalyzeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/src/main/java/com/pironeer/week2/dto/AnalyzeRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/src/main/java/com/pironeer/week2/dto/AnalyzeResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/src/main/java/com/pironeer/week2/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/src/main/java/com/pironeer/week2/service/AnalyzeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/src/test/java/com/pironeer/week2/Week2ApplicationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pironeer/Character.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pironeer/DetectiveGame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pironeer/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pironeer/util/Reader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pironeer/util/Timer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/week1/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/week1/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/week1/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/week1/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/week1/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/week1/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/week1/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/week1/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/week1/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/week1/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/week1/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/week1/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/week1/src/main/java/pironeer/Character.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/week1/src/main/java/pironeer/DetectiveGame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/week1/src/main/java/pironeer/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/week1/src/main/java/pironeer/util/Reader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/week1/src/main/java/pironeer/util/Timer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,9 +66,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2tibMdeuYpSARFaAd3BhZsFAQkh" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -71,9 +78,13 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "kgi",
+    "git-widget-placeholder": "week2/kgi",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/rlarb/coding/pironeer/KimGyuIll/week1",
+    "last_opened_file_path": "C:/Users/rlarb/coding/pironeer/Assignment/KimGyuIll",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "Errors",
     "vue.rearranger.settings.migration": "true"
@@ -82,8 +93,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.24978.46" />
-        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-IU-243.24978.46" />
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.39" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.39" />
       </set>
     </attachedChunks>
   </component>
@@ -96,6 +107,7 @@
       <option name="presentableId" value="Default" />
       <updated>1740826461322</updated>
       <workItem from="1740837797633" duration="50000" />
+      <workItem from="1742072870320" duration="647000" />
     </task>
     <servers />
   </component>
