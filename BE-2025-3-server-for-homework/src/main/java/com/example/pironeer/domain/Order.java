@@ -11,6 +11,7 @@ public class Order {
     private String order_date;
     private String status;
 
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     public User user;
@@ -20,6 +21,19 @@ public class Order {
     public Order(String order_date, String status, User user) {
         this.order_date = order_date;
         this.status = status;
+    }
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getOrder_date() {
+        return order_date;
+    }
+
+    public String getStatus() {
+        return status;
     }
 
 }
