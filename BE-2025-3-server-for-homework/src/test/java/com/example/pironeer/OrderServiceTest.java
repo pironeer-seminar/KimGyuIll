@@ -87,25 +87,25 @@ class OrderServiceTest {
         assertThat(UpdatedMouse.getStockQuantity()).isEqualTo(4);    // 5 -> 4
     }
 
-//    @Test
-//    @DisplayName("주문 생성 중 재고 부족 시 전체 작업이 롤백되어야 한다.")
-//    void createOrderRollbackTest() {
-//        // given
-//        OrderRequestItem item1 = new OrderRequestItem(savedProductId1, 6); // 키보드 6개 (재고 5개)
-//        OrderRequestItem item2 = new OrderRequestItem(savedProductId2, 2);
-//
-//        // when
-//        assertThrows(IllegalStateException.class, () -> {
-//            orderService.createOrder(savedUserId, List.of(item1, item2));
-//        });
-//
-//        // then
-//        List<Order> allOrders = orderRepository.findAll();
-//        assertThat(allOrders).isEmpty();
-//
-//        Product keyboard = productRepository.findById(savedProductId1).orElse(null);
-//        assertThat(keyboard.getStockQuantity()).isEqualTo(5);
-//    }
+    @Test
+    @DisplayName("주문 생성 중 재고 부족 시 전체 작업이 롤백되어야 한다.")
+    void createOrderRollbackTest() {
+        // given
+        OrderRequestItem item1 = new OrderRequestItem(keyboard, 6); // 키보드 6개 (재고 5개)
+        OrderRequestItem item2 = new OrderRequestItem(mouse, 2);
+
+        // when
+        assertThrows(IllegalStateException.class, () -> {
+            orderService.createOrder(savedUserId, List.of(item1, item2));
+        });
+
+        // then
+        List<Order> allOrders = orderRepository.findAll();
+        assertThat(allOrders).isEmpty();
+
+        Product keyboard = productRepository.findById(savedProductId1).orElse(null);
+        assertThat(keyboard.getStockQuantity()).isEqualTo(5);
+    }
 
 //    @Test
 //    @DisplayName("특정 유저의 주문 목록을 조회할 수 있어야 한다.")
