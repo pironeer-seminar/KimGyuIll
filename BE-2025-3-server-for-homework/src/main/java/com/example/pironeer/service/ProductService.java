@@ -39,4 +39,6 @@ public class ProductService {
 
         product.setStockQuantity(product.getStockQuantity() - quantity);
     }
+
+
 }

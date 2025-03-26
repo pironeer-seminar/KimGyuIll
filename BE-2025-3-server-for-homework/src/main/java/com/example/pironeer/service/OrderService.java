@@ -16,12 +16,12 @@ public class OrderService {
 
     private final OrderRepository orderRepository;
     private final UserRepository userRepository;
-    private final ProductRepository productRepository;
+    private final ProductService productService;
 
-    public OrderService(OrderRepository OrderRepository, UserRepository userRepository, ProductRepository productRepository) {
-        this.orderRepository = OrderRepository;
+    public OrderService(OrderRepository orderRepository, UserRepository userRepository, ProductService productService) {
+        this.orderRepository = orderRepository;
         this.userRepository = userRepository;
-        this.productRepository = productRepository;
+        this.productService = productService;
     }
 
     public Long createOrder(Long userId, List<OrderRequestItem> items) {
@@ -36,11 +36,7 @@ public class OrderService {
         for (OrderRequestItem item : items) {
             Product product = item.getProduct();
 
-            // 재고 확인 및 감소
-            if (product.getStockQuantity() < item.getQuantity()) {
-                throw new IllegalStateException("재고 부족");
-            }
-            product.setStockQuantity(product.getStockQuantity() - item.getQuantity());
+            productService.decreaseStock(product.getId(), item.getQuantity());
 
             item.setOrder(order);
             order.addOrderItem(item);
@@ -49,6 +45,5 @@ public class OrderService {
         Order saved = orderRepository.save(order);
         return saved.getId();
     }
-
 }
 

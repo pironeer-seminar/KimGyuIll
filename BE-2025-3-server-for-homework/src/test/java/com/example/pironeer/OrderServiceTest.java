@@ -103,18 +103,18 @@ class OrderServiceTest {
         List<Order> allOrders = orderRepository.findAll();
         assertThat(allOrders).isEmpty();
 
-        Product keyboard = productRepository.findById(savedProductId1).orElse(null);
-        assertThat(keyboard.getStockQuantity()).isEqualTo(5);
+        Product UpdatedKeyboard = productRepository.findById(savedProductId1).orElse(null);
+        assertThat(UpdatedKeyboard.getStockQuantity()).isEqualTo(5);
     }
 
 //    @Test
 //    @DisplayName("특정 유저의 주문 목록을 조회할 수 있어야 한다.")
 //    void getUserOrdersTest() {
 //        // given
-//        OrderRequestItem item1 = new OrderRequestItem(savedProductId1, 1);
+//        OrderRequestItem item1 = new OrderRequestItem(keyboard, 1);
 //        orderService.createOrder(savedUserId, List.of(item1));
 //
-//        OrderRequestItem item2 = new OrderRequestItem(savedProductId2, 2);
+//        OrderRequestItem item2 = new OrderRequestItem(mouse, 2);
 //        orderService.createOrder(savedUserId, List.of(item2));
 //
 //        em.flush();
