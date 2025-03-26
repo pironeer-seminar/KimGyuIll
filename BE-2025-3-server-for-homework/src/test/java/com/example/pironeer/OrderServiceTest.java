@@ -107,22 +107,22 @@ class OrderServiceTest {
         assertThat(UpdatedKeyboard.getStockQuantity()).isEqualTo(5);
     }
 
-//    @Test
-//    @DisplayName("특정 유저의 주문 목록을 조회할 수 있어야 한다.")
-//    void getUserOrdersTest() {
-//        // given
-//        OrderRequestItem item1 = new OrderRequestItem(keyboard, 1);
-//        orderService.createOrder(savedUserId, List.of(item1));
-//
-//        OrderRequestItem item2 = new OrderRequestItem(mouse, 2);
-//        orderService.createOrder(savedUserId, List.of(item2));
-//
-//        em.flush();
-//        em.clear();
-//        // when
-//        List<Order> userOrders = orderService.getOrdersByUserId(savedUserId);
-//
-//        // then
-//        assertThat(userOrders).hasSize(2);
-//    }
+    @Test
+    @DisplayName("특정 유저의 주문 목록을 조회할 수 있어야 한다.")
+    void getUserOrdersTest() {
+        // given
+        OrderRequestItem item1 = new OrderRequestItem(keyboard, 1);
+        orderService.createOrder(savedUserId, List.of(item1));
+
+        OrderRequestItem item2 = new OrderRequestItem(mouse, 2);
+        orderService.createOrder(savedUserId, List.of(item2));
+
+        em.flush();
+        em.clear();
+        // when
+        List<Order> userOrders = orderService.getOrdersByUserId(savedUserId);
+
+        // then
+        assertThat(userOrders).hasSize(2);
+    }
 }
