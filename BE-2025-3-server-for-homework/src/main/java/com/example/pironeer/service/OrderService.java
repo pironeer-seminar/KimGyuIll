@@ -54,6 +54,10 @@ public class OrderService {
         Order order = orderRepository.findById(orderId)
                 .orElseThrow(() -> new IllegalArgumentException("주문이 존재하지 않습니다."));
 
+        if ("CANCELED".equals(order.getStatus())) {
+            throw new IllegalStateException("이미 취소된 주문입니다.");
+        }
+
         // 주문 상태 변경
         order.setStatus("CANCELED");
 
