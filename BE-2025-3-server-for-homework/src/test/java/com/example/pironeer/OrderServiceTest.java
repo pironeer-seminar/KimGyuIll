@@ -1,7 +1,5 @@
 package com.example.pironeer;
 
-
-
 import com.example.pironeer.domain.*;
 import com.example.pironeer.repository.*;
 import com.example.pironeer.service.*;

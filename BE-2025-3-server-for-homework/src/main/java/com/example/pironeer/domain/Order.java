@@ -36,10 +36,6 @@ public class Order {
         return id;
     }
 
-    public String getOrder_date() {
-        return order_date;
-    }
-
     public String getStatus() {
         return status;
     }

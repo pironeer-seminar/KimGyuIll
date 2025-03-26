@@ -5,7 +5,6 @@ import com.example.pironeer.domain.OrderRequestItem;
 import com.example.pironeer.domain.Product;
 import com.example.pironeer.domain.User;
 import com.example.pironeer.repository.OrderRepository;
-import com.example.pironeer.repository.ProductRepository;
 import com.example.pironeer.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
