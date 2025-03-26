@@ -8,7 +8,7 @@ public class OrderRequestItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int quantity;
-    private int ordered_price;
+    private int ordered_price = 0;
 
     @ManyToOne
     @JoinColumn(name = "order_id")
@@ -20,8 +20,23 @@ public class OrderRequestItem {
 
     protected OrderRequestItem() {}
 
-    public OrderRequestItem(Long id, int quantity, int ordered_price, Order order, Product product) {
+    public OrderRequestItem(Product product, int quantity) {
+        this.product = product;
         this.quantity = quantity;
-        this.ordered_price = ordered_price;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+    public int getQuantity() {
+        return this.quantity;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public Product getProduct() {
+        return this.product;
     }
 }
