@@ -27,6 +27,10 @@ public class Order {
         this.user = user;
     }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
 
     public Long getId() {
         return id;

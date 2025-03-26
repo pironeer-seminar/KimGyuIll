@@ -30,7 +30,7 @@ public class OrderService {
                 .orElseThrow(() -> new IllegalArgumentException("유저가 존재하지 않습니다."));
 
         // 주문 객체 생성
-        Order order = new Order("2025-03-26", "CREATED", user);
+        Order order = new Order("2025-03-26", "ORDERED", user);
 
         // 각 아이템 처리
         for (OrderRequestItem item : items) {
@@ -49,5 +49,20 @@ public class OrderService {
     public List<Order> getOrdersByUserId(Long userId) {
         return orderRepository.findByUserId(userId);
     }
+
+    public void cancelOrder(Long orderId) {
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new IllegalArgumentException("주문이 존재하지 않습니다."));
+
+        // 주문 상태 변경
+        order.setStatus("CANCELED");
+
+        // 재고 복원
+        for (OrderRequestItem item : order.getOrderItems()) {
+            Product product = item.getProduct();
+            product.setStockQuantity(product.getStockQuantity() + item.getQuantity());
+        }
+    }
+
 }
 
