@@ -2,6 +2,7 @@ package com.example.pironeer.controller;
 
 import com.example.pironeer.dto.requset.PostCreateReq;
 import com.example.pironeer.dto.requset.PostUpdateReq;
+import com.example.pironeer.dto.response.PostDetailRes;
 import com.example.pironeer.dto.response.PostSearchRes;
 import com.example.pironeer.service.PostService;
 import lombok.RequiredArgsConstructor;
@@ -29,7 +30,7 @@ public class PostController {
 
     // 단일 조회
     @GetMapping("/{postId}")
-    public PostSearchRes detail(
+    public PostDetailRes detail(
             @PathVariable("postId") Long postId
     ) {
         return postService.detail(postId);
@@ -51,6 +52,6 @@ public class PostController {
 
     @GetMapping("/user/{userId}")
     public List<PostSearchRes> userSearch(@PathVariable("userId") Long userId) {
-        return postService.userPostList(userId);
+        return postService.getUserPostList(userId);
     }
 }

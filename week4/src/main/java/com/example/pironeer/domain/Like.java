@@ -1,19 +1,16 @@
 package com.example.pironeer.domain;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Table(name = "likes", uniqueConstraints = {
         @UniqueConstraint(columnNames = {"user_id", "post_id"})
 })
 @Getter
+@Builder(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-
 public class Like {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +25,10 @@ public class Like {
     private Post post;
 
     public static Like create(User user, Post post) {
-        return new Like(null, user, post);
+        return Like.builder()
+                .user(user)
+                .post(post)
+                .build();
     }
 
 }
