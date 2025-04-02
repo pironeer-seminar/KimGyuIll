@@ -2,9 +2,12 @@ package com.example.pironeer.controller;
 
 import com.example.pironeer.dto.requset.CommentCreateReq;
 import com.example.pironeer.dto.requset.CommentUpdateReq;
+import com.example.pironeer.dto.response.CommentSearchRes;
 import com.example.pironeer.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/posts/comments")
@@ -34,5 +37,9 @@ public class CommentController {
         return commentService.delete(postId, commentId);
     }
 
+    @GetMapping()
+    public List<CommentSearchRes> search() {
+        return commentService.search();
+    }
 
 }

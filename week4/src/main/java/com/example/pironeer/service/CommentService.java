@@ -4,12 +4,15 @@ import com.example.pironeer.domain.Comment;
 import com.example.pironeer.domain.Post;
 import com.example.pironeer.domain.User;
 import com.example.pironeer.dto.requset.CommentCreateReq;
+import com.example.pironeer.dto.response.CommentSearchRes;
 import com.example.pironeer.repository.CommentRepository;
 import com.example.pironeer.repository.PostRepository;
 import com.example.pironeer.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @Transactional
@@ -58,4 +61,15 @@ public class CommentService {
 
     }
 
+    public List<CommentSearchRes> search() {
+        List<Comment> comments = commentRepository.findAll();
+        return comments.stream()
+                .map(comment ->
+                        new CommentSearchRes(comment.getId(),
+                                comment.getUser().getId(),
+                                comment.getPost().getId(),
+                                comment.getContent())
+                )
+                .toList();
+    }
 }
