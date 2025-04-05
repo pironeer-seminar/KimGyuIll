@@ -1,6 +1,7 @@
 package com.example.demo1.Post.service;
 
 import com.example.demo1.Common.exception.NotFoundException;
+import com.example.demo1.Common.type.PostErrorType;
 import com.example.demo1.Common.type.UserErrorType;
 import com.example.demo1.Post.dto.request.PostCreateReq;
 import com.example.demo1.Post.dto.request.PostUpdateReq;
@@ -47,7 +48,7 @@ public class PostService {
 
     public PostSearchRes detail(Long postId) {
         Post post = postRepository.findById(postId)
-                .orElseThrow(() -> new IllegalArgumentException("조회된 게시글이 없습니다."));
+                .orElseThrow(() -> new NotFoundException(PostErrorType.NOT_FOUND));
 
         return new PostSearchRes(post.getUser().getId(), post.getId(), post.getTitle(), post.getContent(),
                 post.getCreatedAt());
@@ -55,7 +56,7 @@ public class PostService {
 
     public Long update(Long postId, PostUpdateReq req) {
         Post post = postRepository.findById(postId)
-                .orElseThrow(() -> new IllegalArgumentException("조회된 게시글이 없습니다."));
+                .orElseThrow(() -> new NotFoundException(PostErrorType.NOT_FOUND));
 
         post.update(req.getTitle(), req.getContent(), req.getStatus());
         postRepository.save(post);
