@@ -1,5 +1,7 @@
 package com.example.demo1.User.controller;
 
+import com.example.demo1.Common.dto.ApiRes;
+import com.example.demo1.Common.type.UserSuccessType;
 import com.example.demo1.User.dto.request.UserCreateReq;
 import com.example.demo1.User.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -16,8 +18,9 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("")
-    public Long create(@RequestBody UserCreateReq req) {
-        return userService.create(req);
+    public ApiRes<?> create(@RequestBody UserCreateReq req) {
+        userService.create(req);
+        return ApiRes.success(UserSuccessType.CREATE);
     }
 
 }
