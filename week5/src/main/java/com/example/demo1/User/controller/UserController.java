@@ -4,6 +4,8 @@ import com.example.demo1.Common.dto.ApiRes;
 import com.example.demo1.Common.type.UserSuccessType;
 import com.example.demo1.User.dto.request.UserCreateReq;
 import com.example.demo1.User.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +20,11 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("")
-    public ApiRes<?> create(@RequestBody UserCreateReq req) {
+    @Operation(
+            summary = "유저 생성",
+            description = "이름을 기반으로 새 유저를 생성합니다.")
+
+    public ApiRes<?> create(@Valid @RequestBody UserCreateReq req) {
         userService.create(req);
         return ApiRes.success(UserSuccessType.CREATE);
     }
