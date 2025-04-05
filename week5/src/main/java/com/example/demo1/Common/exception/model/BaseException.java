@@ -1,6 +1,6 @@
-package com.example.demo1.Common.exception;
+package com.example.demo1.Common.exception.model;
 
-import com.example.demo1.Common.type.ErrorType;
+import com.example.demo1.Common.exception.type.ErrorType;
 import org.springframework.http.HttpStatus;
 
 public class BaseException extends RuntimeException {

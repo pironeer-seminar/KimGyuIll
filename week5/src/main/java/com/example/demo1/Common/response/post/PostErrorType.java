@@ -1,6 +1,8 @@
-package com.example.demo1.Common.type;
+package com.example.demo1.Common.response.post;
 
-public enum PostErrorType implements ErrorType{
+import com.example.demo1.Common.exception.type.ErrorType;
+
+public enum PostErrorType implements ErrorType {
 
     NOT_FOUND("Post_1", "조회되는 게시글이 없습니다.");
 

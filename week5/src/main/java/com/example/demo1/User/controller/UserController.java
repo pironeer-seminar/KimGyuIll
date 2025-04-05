@@ -1,7 +1,7 @@
 package com.example.demo1.User.controller;
 
 import com.example.demo1.Common.dto.ApiRes;
-import com.example.demo1.Common.type.UserSuccessType;
+import com.example.demo1.Common.response.user.UserSuccessType;
 import com.example.demo1.User.dto.request.UserCreateReq;
 import com.example.demo1.User.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;

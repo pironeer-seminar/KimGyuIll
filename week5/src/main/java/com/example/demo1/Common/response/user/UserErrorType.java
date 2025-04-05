@@ -1,4 +1,6 @@
-package com.example.demo1.Common.type;
+package com.example.demo1.Common.response.user;
+
+import com.example.demo1.Common.exception.type.ErrorType;
 
 public enum UserErrorType implements ErrorType {
 

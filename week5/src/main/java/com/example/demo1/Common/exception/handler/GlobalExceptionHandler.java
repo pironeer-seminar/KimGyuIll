@@ -1,7 +1,8 @@
-package com.example.demo1.Common.exception;
+package com.example.demo1.Common.exception.handler;
 
 import com.example.demo1.Common.dto.ApiRes;
-import com.example.demo1.Common.type.CommonErrorType;
+import com.example.demo1.Common.exception.model.BaseException;
+import com.example.demo1.Common.exception.type.CommonErrorType;
 import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

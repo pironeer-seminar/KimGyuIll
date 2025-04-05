@@ -1,4 +1,4 @@
-package com.example.demo1.Common.type;
+package com.example.demo1.Common.response.type;
 
 public interface SuccessType {
 

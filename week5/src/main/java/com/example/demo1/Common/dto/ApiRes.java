@@ -1,8 +1,8 @@
 package com.example.demo1.Common.dto;
 
-import com.example.demo1.Common.exception.BaseException;
-import com.example.demo1.Common.type.SuccessType;
-import com.example.demo1.Common.type.ErrorType;
+import com.example.demo1.Common.exception.model.BaseException;
+import com.example.demo1.Common.response.type.SuccessType;
+import com.example.demo1.Common.exception.type.ErrorType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import org.springframework.http.HttpStatus;
 

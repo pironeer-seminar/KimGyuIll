@@ -1,8 +1,8 @@
 package com.example.demo1.Post.service;
 
-import com.example.demo1.Common.exception.NotFoundException;
-import com.example.demo1.Common.type.PostErrorType;
-import com.example.demo1.Common.type.UserErrorType;
+import com.example.demo1.Common.exception.model.NotFoundException;
+import com.example.demo1.Common.response.post.PostErrorType;
+import com.example.demo1.Common.response.user.UserErrorType;
 import com.example.demo1.Post.dto.request.PostCreateReq;
 import com.example.demo1.Post.dto.request.PostUpdateReq;
 import com.example.demo1.Post.dto.response.PostSearchRes;

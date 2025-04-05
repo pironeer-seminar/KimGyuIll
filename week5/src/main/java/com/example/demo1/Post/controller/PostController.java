@@ -1,7 +1,7 @@
 package com.example.demo1.Post.controller;
 
 import com.example.demo1.Common.dto.ApiRes;
-import com.example.demo1.Common.type.PostSuccessType;
+import com.example.demo1.Common.response.post.PostSuccessType;
 import com.example.demo1.Post.dto.request.PostCreateReq;
 import com.example.demo1.Post.dto.request.PostUpdateReq;
 import com.example.demo1.Post.dto.response.PostSearchRes;

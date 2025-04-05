@@ -1,4 +1,6 @@
-package com.example.demo1.Common.type;
+package com.example.demo1.Common.response.post;
+
+import com.example.demo1.Common.response.type.SuccessType;
 
 public enum PostSuccessType implements SuccessType {
 
