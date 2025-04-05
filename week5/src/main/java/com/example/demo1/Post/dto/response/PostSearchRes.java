@@ -26,14 +26,14 @@ public class PostSearchRes {
     )
     private Long postId;
 
-    @NotBlank
+    @NotBlank(message = "제목은 필수입니다.")
     @Schema(
             description = "게시글 제목",
             example = "현재 시간 22시  8분"
     )
     private String title;
 
-    @NotBlank
+    @NotBlank(message = "내용은 필수입니다.")
     @Schema(
             description = "게시글 내용",
             example = "자정 전에 자는게 목표"

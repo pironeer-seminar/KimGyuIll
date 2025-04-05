@@ -2,7 +2,8 @@ package com.example.demo1.Common.type;
 
 public enum CommonErrorType implements ErrorType {
 
-    INTERNAL_SERVER("Common1", "Internal Server Error");
+    INTERNAL_SERVER("Common1", "Internal Server Error"),
+    BAD_REQUEST("Common2", "잘못된 요청입니다."),;
 
     private final String code;
     private final String message;

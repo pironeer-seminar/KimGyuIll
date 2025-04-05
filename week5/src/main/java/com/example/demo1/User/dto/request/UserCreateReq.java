@@ -8,7 +8,7 @@ import lombok.Getter;
 @Schema(description = "유저 생성 요청 DTO")
 public class UserCreateReq {
 
-    @NotBlank
+    @NotBlank(message = "이름은 필수입니다.")
     @Schema(
             description = "User 이름",
             example = "김규일"

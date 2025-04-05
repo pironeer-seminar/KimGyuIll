@@ -17,19 +17,19 @@ public class PostCreateReq {
             example = "1")
     private Long userId;
 
-    @NotBlank
+    @NotBlank(message = "제목은 필수입니다.")
     @Schema(
             description = "게시글 제목",
             example = "그거 아세요?")
     private String title;
 
-    @NotBlank
+    @NotBlank(message = "내용은 필수입니다.")
     @Schema(
             description = "게시글 내용",
             example = "벌써 4월이라는 거 ㅜㅜ")
     private String content;
 
-    @NotNull
+    @NotNull(message = "상태는 필수입니다.")
     @Schema(
             description = "게시글 상태",
             example = "PUBLIC/PRIVATE")
