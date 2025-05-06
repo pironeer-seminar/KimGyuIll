@@ -62,4 +62,9 @@ public class PostService {
         postRepository.delete(post);
     }
 
+    @Transactional
+    public void deleteAllPosts() {
+        postRepository.deleteAll();
+    }
+
 }

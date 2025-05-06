@@ -10,6 +10,9 @@ import com.pironeer.week6.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import static com.pironeer.week6.user.entity.User.Role.ADMIN;
 
 @Service
 @RequiredArgsConstructor
@@ -59,4 +62,23 @@ public class UserService {
     }
 
 
+    public UserJoinRes adminJoin(UserJoinReq req) {
+        if (userRepository.findByEmail(req.getEmail()).isPresent()) {
+            throw new IllegalStateException("이미 존재하는 이메일입니다.");
+        }
+
+        User user = User.builder()
+                .email(req.getEmail())
+                .password(passwordEncoder.encode(req.getPassword()))
+                .name(req.getName())
+                .role(User.Role.ADMIN) // ✅ 관리자 권한 부여
+                .build();
+
+        userRepository.save(user);
+        return UserJoinRes.builder()
+                .email(user.getEmail())
+                .name(user.getName())
+                .role(user.getRole())
+                .build();
+    }
 }

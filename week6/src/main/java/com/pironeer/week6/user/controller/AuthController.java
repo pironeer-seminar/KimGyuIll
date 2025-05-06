@@ -8,6 +8,7 @@ import com.pironeer.week6.user.dto.response.UserLoginRes;
 import com.pironeer.week6.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -40,7 +41,7 @@ public class AuthController {
             throw new IllegalArgumentException("리프레시 토큰 만료 혹은 위조됨");
         }
 
-        String email = jwtUtil.getUserId(refreshToken); // ✅ subject가 email이므로 그대로 사용
+        String email = jwtUtil.getUserId(refreshToken);
         String role = jwtUtil.getRole(refreshToken);
 
         String newAccessToken = jwtUtil.createAccessToken(null, email, role);
@@ -49,5 +50,11 @@ public class AuthController {
                 .accessToken(newAccessToken)
                 .refreshToken(refreshToken)
                 .build());
+    }
+
+    @PostMapping("/admin-signup")
+    public ResponseEntity<UserJoinRes> adminSignup(@RequestBody UserJoinReq req) {
+        UserJoinRes res = userService.adminJoin(req);
+        return ResponseEntity.ok(res);
     }
 }
