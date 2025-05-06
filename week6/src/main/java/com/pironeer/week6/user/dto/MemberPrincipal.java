@@ -18,9 +18,16 @@ public class MemberPrincipal implements UserDetails {
         return user.getName();
     }
 
+    public String getEmail() {
+        return user.getEmail();
+    }
+
     @Override
     public String getPassword() {
         return user.getPassword();
+    }
+    public User getUser() {
+        return user;
     }
 
     @Override
