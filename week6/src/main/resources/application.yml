@@ -3,7 +3,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/pironeer
     driver-class-name: org.postgresql.Driver
     username: postgres
-    password: ${DB_PASSWORD}
+    password: rb87568756
 
   jpa:
     hibernate:
@@ -22,5 +22,5 @@ logging:
 
 jwt:
   secret: 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
-  access-token-expiration: 3600000   # 1?? (ms)
-  refresh-token-expiration: 1209600000 # 14? (ms)
+  access-token-expiration: 3600000
+  refresh-token-expiration: 604800000
